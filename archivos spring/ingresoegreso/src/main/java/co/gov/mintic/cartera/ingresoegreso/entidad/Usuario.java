@@ -12,6 +12,8 @@ public class Usuario {
     private Rol rol;
     private boolean estado;
 
+    private Perfil perfil;
+
     public long getIdUsuario() {
         return idUsuario;
     }
@@ -84,6 +86,14 @@ public class Usuario {
         this.estado = estado;
     }
 
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -96,6 +106,7 @@ public class Usuario {
                 ", pass='" + pass + '\'' +
                 ", rol=" + rol +
                 ", estado=" + estado +
+                ", perfil=" + perfil +
                 '}';
     }
 }
