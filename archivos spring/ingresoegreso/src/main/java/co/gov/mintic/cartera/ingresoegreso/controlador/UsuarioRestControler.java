@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @RestController
 @RequestMapping ("/api")
@@ -36,7 +39,30 @@ public class UsuarioRestControler {
         return usuario;
     }
 
+    @GetMapping("/usuario/{id}")
+    public Usuario findByAll(){
+        List<Usuario> usuarios = new ArrayList<>();
+        Usuario usuario1 = new Usuario();
+        usuario1.setIdUsuario(1);
+        usuario1.setApellido("Rodriguez");
+        usuario1.setCedula("1234567");
+        usuario1.setPass("1234");
+        usuario1.setCorreo("sdfdf@df.com");
+        usuario1.setEstado(true);
+        usuario1.setNombre("Fredy");
+        Perfil perfil = Perfil.Financiero;
+        usuario1.setPerfil(perfil);
+        Rol rol = new Rol ();
+        rol.setIdRol(1);
+        rol.setDescripcion("Admin");
+        rol.setEstado(true);
+        usuario1.setRol(rol);
 
+
+
+        return usuario1;
+
+    }
 
 
 

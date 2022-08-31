@@ -9,6 +9,9 @@ public interface IRolService {
     public Rol findByid (int id);
     public List<Rol> findAll();
     public Rol createRoll ();
+
+    Rol createRoll(Rol rol);
+
     public Rol updateRol (int id, Rol rol);
     public void deleteRon (int id);
 

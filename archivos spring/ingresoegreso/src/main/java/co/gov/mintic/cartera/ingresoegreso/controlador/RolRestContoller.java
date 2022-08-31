@@ -23,52 +23,25 @@ public class RolRestContoller {
 
     @GetMapping("/rol")
     public List<Rol> findByAll() {
-        List<Rol> roles = new ArrayList<Rol>();
-
-
-        Rol rol1 = new Rol();
-        rol1.setIdRol(1);
-        rol1.setDescripcion("Admin");
-        rol1.setEstado(true);
-
-        roles.add(rol1);
-
-        Rol rol2 = new Rol();
-        rol2.setIdRol(2);
-        rol2.setDescripcion("User");
-        rol2.setEstado(true);
-
-        roles.add(rol2);
-        return roles;
+        return rolservice.findAll();
 
     }
 
     @PostMapping("/rol")
 
     public Rol createRol(@RequestBody Rol rol) {
-
-        Rol newrol = new Rol();
-        newrol.setIdRol(3);
-        newrol.setDescripcion(rol.getDescripcion());
-        newrol.setEstado(rol.isEstado());
-        return newrol;
+        return rolservice.createRoll();
     }
 
     @PutMapping("/rol/{id}")
 
     public Rol updateRol(@PathVariable int id, @RequestBody Rol rol) {
-
-        Rol putrol = findById(id);
-        putrol.setIdRol(id);
-        putrol.setDescripcion(rol.getDescripcion());
-        putrol.setEstado(rol.isEstado());
-        return putrol;
+        return rolservice.updateRol(id, rol);
     }
 
     @DeleteMapping("/rol/{id}")
     public void deleteRol(@PathVariable int id) {
-
-        Rol deleterol = findById(id);
+        rolservice.deleteRon(id);
 
 
     }
