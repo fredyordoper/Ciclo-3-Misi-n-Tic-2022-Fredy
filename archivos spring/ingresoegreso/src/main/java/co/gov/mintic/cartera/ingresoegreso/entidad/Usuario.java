@@ -1,17 +1,41 @@
 package co.gov.mintic.cartera.ingresoegreso.entidad;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="usuarios")
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private long idUsuario;
-    private String nombre;
-    private String apellido;
-    private TipoDocumento tipoDocumento;
-    private String cedula;
-    private String correo;
-    private String pass;
-    private Rol rol;
-    private boolean estado;
 
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "apellido")
+    private String apellido;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_documento")
+    private TipoDocumento tipoDocumento;
+
+    @Column(name = "cedula",unique = true)
+    private String cedula;
+
+    @Column(name = "correo")
+    private String correo;
+
+    @Column(name = "pass")
+    private String pass;
+
+    @ManyToOne
+    @JoinColumn(name = "rol")
+    private Rol rol;
+
+    @Column(name = "estado")
+    private boolean estado;
     private Perfil perfil;
 
     public long getIdUsuario() {
